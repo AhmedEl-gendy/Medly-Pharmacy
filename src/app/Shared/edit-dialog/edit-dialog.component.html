@@ -1,0 +1,89 @@
+<div class="modal-header m-4">
+  <h1 class="modal-title">Edit Medicine</h1>
+</div>
+<div class="raw">
+  <div class="modal-body d-flex justify-content-center">
+    <form #editForm="ngForm" class="col-8">
+      <div class="form-group mt-1">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          [(ngModel)]="data.name"
+          required
+        />
+      </div>
+      <div class="form-group mt-4">
+        <label for="category">Category</label>
+        <input
+          type="text"
+          class="form-control"
+          id="category"
+          name="category"
+          [(ngModel)]="data.category"
+          required
+        />
+      </div>
+      <div class="form-group mt-4">
+        <input
+          type="file"
+          class="custom-file-input"
+          id="imgSrc"
+          accept=".jpg, .jpeg, .png"
+          (change)="onSelectingImg($event)"
+        />
+        <label class="custom-file-label" for="imgSrc">Choose Image</label>
+      </div>
+      <div>
+        <img
+          class="preview-img"
+          style="width: 100px"
+          [src]="data.imgSrc"
+          alt="Preview"
+        />
+      </div>
+      <div class="form-group mt-4">
+        <label for="quantity">Quantity</label>
+        <input
+          type="number"
+          class="form-control"
+          id="quantity"
+          name="quantity"
+          [(ngModel)]="data.quantity"
+          required
+        />
+      </div>
+      <div class="form-group mt-4">
+        <label for="price">Price</label>
+        <input
+          type="number"
+          class="form-control"
+          id="price"
+          name="price"
+          [(ngModel)]="data.price"
+          required
+        />
+      </div>
+      <div class="form-group mt-4 d-flex justify-content-center">
+        <button
+          type="button"
+          class="btn btn-primary m-1"
+          (click)="onSaveClick()"
+          [disabled]="!editForm.valid"
+        >
+          Save
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary m-1"
+          data-dismiss="modal"
+          (click)="onCancelClick()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

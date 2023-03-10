@@ -1,0 +1,56 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container d-flex justify-content-center">
+  <div class="input-group mb-3 search">
+    <input
+      type="text"
+      class="form-control input"
+      placeholder="Search"
+      (keyup)="getData($event)"
+    />
+  </div>
+</div>
+
+<div class="container d-flex justify-content-center">
+  <mat-chip-listbox aria-label="Fish selection">
+    <mat-chip *ngFor="let chip of chips" (click)="filterByCategory(chip)">
+      {{ chip }}
+    </mat-chip>
+  </mat-chip-listbox>
+</div>
+
+<div class="container drug">
+  <div class="row d-flex justify-content-center">
+    <div
+      class="d-flex justify-content-center mt-4 fs-4 fw-semibold text-danger"
+      *ngIf="filterMedicine.length === 0"
+    >
+      No matching item found.
+    </div>
+    <div class="col-5 sm-col-10" *ngFor="let item of filterMedicine">
+      <div
+        class="d-flex justify-content-center item"
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+        fxLayoutGap="40"
+      >
+        <div>
+          <p class="name">{{ item.name }}</p>
+          <p class="ps-1">{{ item.category }}</p>
+        </div>
+        <div><img class="drug-img" [src]="item.imgSrc" alt="" /></div>
+        <div>
+          <div>
+            <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+          </div>
+          <div>
+            <p><strong>Price:</strong> {{ item.price }}$</p>
+          </div>
+          <div>
+            <a class="link" (click)="addToCart(item)"> Add to cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+
+.img {
+  width: 570px;
+}
+
+.store {
+  width: 200px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 900;
+  color: #00bbae;
+}
+.right {
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.paragraph {
+  margin-top: 20px;
+  color: #00bbae;
+}

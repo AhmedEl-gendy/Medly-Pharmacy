@@ -1,0 +1,162 @@
+<!--
+<h1 mat-dialog-title>Add Medicine</h1>
+<div mat-dialog-content>
+  <form #addForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        name="name"
+        [(ngModel)]="name"
+        placeholder="Name"
+        required
+      />
+      <mat-label>Name</mat-label>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        name="category"
+        [(ngModel)]="category"
+        placeholder="Category"
+        required
+      />
+      <mat-label>Category</mat-label>
+    </mat-form-field>
+    <mat-form-field>
+
+      <input
+        matInput
+        name="imgSrc"
+        [(ngModel)]="imgSrc"
+        placeholder="Image Source"
+        required
+      />
+
+      <input
+        type="file"
+        accept=".jpg, .jpeg, .png"
+        (change)="onSelectingImg($event)"
+      />
+
+      <div *ngIf="imgSrc">
+        <img [src]="imgSrc" alt="Preview" />
+      </div>
+
+      <mat-label>Image Source</mat-label>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        name="quantity"
+        [(ngModel)]="quantity"
+        placeholder="Quantity"
+        required
+      />
+      <mat-label>Quantity</mat-label>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        name="price"
+        [(ngModel)]="price"
+        placeholder="Price"
+        required
+      />
+      <mat-label>Price</mat-label>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onAddClick()" [disabled]="!addForm.valid">
+    Add
+  </button>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+</div>
+-->
+
+<div class="modal-body">
+  <div class="container">
+    <h1 class="modal-title mt-4">Add Medicine</h1>
+    <div class="row d-flex justify-content-center">
+      <form #addForm="ngForm" class="col-8">
+        <div class="form-group mt-4">
+          <label for="name">Name</label>
+          <input
+            class="form-control"
+            id="name"
+            name="name"
+            [(ngModel)]="name"
+            placeholder="Name"
+            required
+          />
+        </div>
+        <div class="form-group mt-4">
+          <label for="category">Category</label>
+          <input
+            class="form-control"
+            id="category"
+            name="category"
+            [(ngModel)]="category"
+            placeholder="Category"
+            required
+          />
+        </div>
+        <div class="form-group mt-4">
+          <label for="imgSrc">Image</label>
+          <div class="custom-file">
+            <input
+              type="file"
+              class="custom-file-input"
+              id="imgSrc"
+              accept=".jpg, .jpeg, .png"
+              (change)="onSelectingImg($event)"
+            />
+            <label class="custom-file-label" for="imgSrc">Choose Image</label>
+          </div>
+          <div *ngIf="imgSrc">
+            <img
+              class="preview-img"
+              style="width: 100px"
+              [src]="imgSrc"
+              alt="Preview"
+            />
+          </div>
+        </div>
+        <div class="form-group mt-4">
+          <label for="quantity">Quantity</label>
+          <input
+            class="form-control"
+            id="quantity"
+            name="quantity"
+            [(ngModel)]="quantity"
+            placeholder="Quantity"
+            required
+          />
+        </div>
+        <div class="form-group mt-4">
+          <label for="price">Price</label>
+          <input
+            class="form-control"
+            id="price"
+            name="price"
+            [(ngModel)]="price"
+            placeholder="Price"
+            required
+          />
+        </div>
+        <div class="form-group mt-3 d-flex justify-content-center">
+          <button
+            class="btn btn-primary m-1"
+            (click)="onAddClick()"
+            [disabled]="!addForm.valid"
+          >
+            Add
+          </button>
+          <button class="btn btn-secondary m-1" (click)="onCancelClick()">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
